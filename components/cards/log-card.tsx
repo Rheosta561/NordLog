@@ -4,14 +4,27 @@ import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Layers } from "lucide-react";
 import { formatDate, truncate } from "@/lib/utils";
 import type { LocalLog } from "@/lib/local-logs";
+import type { DailyLogType } from "@/types";
+
+type LogCardLog = LocalLog | DailyLogType;
 
 interface LogCardProps {
-  log: LocalLog;
+  log: LogCardLog;
   index?: number;
   onClick?: () => void;
 }
 
+function getLogDescription(log: LogCardLog) {
+  if ("summary" in log) {
+    return log.summary || log.topLearnings.join(", ");
+  }
+
+  return log.learnings || log.diary;
+}
+
 export function LogCard({ log, index = 0, onClick }: LogCardProps) {
+  const description = getLogDescription(log);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -55,7 +68,7 @@ export function LogCard({ log, index = 0, onClick }: LogCardProps) {
 
             {/* Summary */}
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-              {truncate(log.learnings || log.diary, 140)}
+              {truncate(description, 140)}
             </p>
 
             {/* Meta */}
