@@ -1,0 +1,6 @@
+{
+  "title": "Migrating to File System",
+  "tags": ["Next.js", "FS", "Gemini", "AI"],
+  "learnings": "Learned how to read directly from the public folder using fs and path in Next.js Server Components. Also learned about integrating Gemini API for automatic summarization.",
+  "diary": "Today I started the transition from a database-heavy approach to a more file-based system. I created the daily_logs folder and set up this dummy data.json file to test the reading logic. The goal is to make the logging system more portable and easier to manage without needing a database connection."
+}
