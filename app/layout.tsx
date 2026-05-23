@@ -3,7 +3,7 @@ import "./globals.css";
 import { Providers } from "@/providers/providers";
 import { siteConfig } from "@/config/site";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export const metadata: Metadata = {
   title: {

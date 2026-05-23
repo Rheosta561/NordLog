@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { getDailyLogs } from "@/lib/local-logs";
 import { LogsList } from "@/components/logs/logs-list";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export const metadata: Metadata = {
   title: "Daily Logs",
